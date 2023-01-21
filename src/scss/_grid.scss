@@ -1,0 +1,34 @@
+@import "./variables";
+
+@mixin make-row() {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@mixin make-col($breakpoint, $size) {
+  @for $i from 1 through length($breakpointSizes) {
+    @if $breakpoint == nth($breakpoint-Arry, $i) {
+      @if nth($breakpointSizes, $i) < 576px {
+        @media (max-width: 576px) {
+          @for $num from 1 through $grid-columns {
+            @if $size == $num {
+              flex: 0 0 auto;
+              width: percentage($size / $grid-columns);
+            }
+          }
+        }
+      } @else {
+        @media (min-width: nth($breakpointSizes, $i)) {
+          @for $num from 1 through $grid-columns {
+            @if $size == $num {
+              flex: 0 0 auto;
+              width: percentage($size / $grid-columns);
+            }
+          }
+        }
+      }
+    }
+  }
+}
