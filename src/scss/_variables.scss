@@ -1,10 +1,12 @@
 $PrimaryTextColor: #3a3a3a;
+$SecondaryTextColor: #0788ff;
 $SecondaryHeaderColor: #9f9f9f;
 $PrimaryBackgroundColor: #fafafa;
 $ProfileImgColor: linear-gradient(280deg, #aa9cff, #aa9cff, #70a5ff, #37d2f3, #37d2f3);
 $PrimaryBgColor: #fafafa;
 $SecondaryBgColor: #ffffff;
-$PagePadding: 18.75rem;
+$NavLinkHover: #dadada7c;
+$NobackGround: #ffffff00;
 
 $breakpoints-xs: 0px;
 $breakpoints-sm: 576px;
@@ -16,3 +18,5 @@ $breakpoints-xxl: 1400px;
 $grid-columns: 12;
 $breakpoint-Arry: (xs, sm, md, lg, xl, xxl);
 $breakpointSizes: (0px, 576px, 768px, 992px, 1200px, 1400px);
+
+$pageMarginWidth: 18.75rem;

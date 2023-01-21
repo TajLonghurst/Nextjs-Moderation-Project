@@ -1,25 +1,42 @@
-import { type NextPage } from "next";
+import { type NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
-import classes from "./index.module.scss";
-// import Link from "next/link";
-// import { signIn, signOut, useSession } from "next-auth/react";
+import Hero from "../components/Hero/Hero";
+import { getProviders } from "next-auth/react";
+// import {useSession } from "next-auth/react";
 
 // import { api } from "../utils/api";
 import { Fragment } from "react";
+import Nav from "../components/Nav/Nav";
+import { type AppProps } from "next/app";
 
-const Home: NextPage = () => {
+interface IndexProps {
+  providers: AppProps;
+}
+
+const Home: NextPage<IndexProps> = (props) => {
   return (
     <Fragment>
       <Head>
-        <title>Valids | Home</title>
+        <title>VALIDS | Home</title>
         <meta name="description" content="Valids Homepage" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav providers={props.providers} />
+      <Hero />
     </Fragment>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const providers = await getProviders();
+  return {
+    props: {
+      providers: providers,
+    },
+  };
+};
 
 // const AuthShowcase: React.FC = () => {
 //   const { data: sessionData } = useSession();

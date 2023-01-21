@@ -32,3 +32,17 @@
     }
   }
 }
+
+//Max is down
+@mixin media-breakpoint-max($breakpoints) {
+  @media (max-width: $breakpoints) {
+    @content;
+  }
+}
+
+//min is up
+@mixin media-breakpoint-min($breakpoints) {
+  @media (min-width: $breakpoints) {
+    @content;
+  }
+}
