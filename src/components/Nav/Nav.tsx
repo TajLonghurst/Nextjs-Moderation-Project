@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import NavItems from "./NavItems";
 import classes from "./Nav.module.scss";
 import { useRouter } from "next/router";
 import { type AppProps } from "next/app";
 import Dropdown from "../Dropdown/Dropdown";
+import UiContentContext from "../../store/ui-Content";
 
 const navItems = [
   {
@@ -28,7 +29,13 @@ interface NavProps {
 }
 
 const Nav: React.FC<NavProps> = (props) => {
+  const uiContextCtx = useContext(UiContentContext);
   const { pathname } = useRouter();
+
+  const dropdownHander = () => {
+    uiContextCtx.dropdownHandler();
+  };
+
   return (
     <Fragment>
       <nav className={classes.navBar}>
@@ -50,8 +57,10 @@ const Nav: React.FC<NavProps> = (props) => {
           </ul>
         </div>
         <div className={classes.navProfile}>
-          <h1 className={classes.userName}>Taj Longhurst</h1>
-          <div className={classes.userImg}></div>
+          <h1 onClick={dropdownHander} className={classes.userName}>
+            Taj Longhurst
+          </h1>
+          <div onClick={dropdownHander} className={classes.userImg}></div>
           <Dropdown providers={props.providers} />
         </div>
       </nav>
