@@ -1,12 +1,10 @@
 import { type NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import Hero from "../components/Hero/Hero";
-import { getProviders } from "next-auth/react";
 // import {useSession } from "next-auth/react";
 
 // import { api } from "../utils/api";
 import { Fragment } from "react";
-import Nav from "../components/Nav/Nav";
 import { type AppProps } from "next/app";
 
 interface IndexProps {
@@ -21,7 +19,6 @@ const Home: NextPage<IndexProps> = (props) => {
         <meta name="description" content="Valids Homepage" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav providers={props.providers} />
       <Hero />
     </Fragment>
   );
@@ -30,11 +27,8 @@ const Home: NextPage<IndexProps> = (props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const providers = await getProviders();
   return {
-    props: {
-      providers: providers,
-    },
+    props: {},
   };
 };
 

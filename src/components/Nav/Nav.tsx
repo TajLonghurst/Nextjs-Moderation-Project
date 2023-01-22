@@ -24,9 +24,7 @@ const navItems = [
   },
 ];
 
-interface NavProps {
-  providers: AppProps;
-}
+interface NavProps {}
 
 const Nav: React.FC<NavProps> = (props) => {
   const uiContextCtx = useContext(UiContentContext);
@@ -61,7 +59,7 @@ const Nav: React.FC<NavProps> = (props) => {
             Taj Longhurst
           </h1>
           <div onClick={dropdownHander} className={classes.userImg}></div>
-          <Dropdown providers={props.providers} />
+          <Dropdown />
         </div>
       </nav>
     </Fragment>

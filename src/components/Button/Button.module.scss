@@ -4,6 +4,25 @@
   background-color: $NobackGround;
   padding: 0.3rem;
   border: none;
-  cursor: pointer;
   font-size: 16px;
+  color: $SecondaryTextColor;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+    background-position: 100% 0;
+    .icon {
+      transform: translateX(20%);
+    }
+  }
+  .icon {
+    margin-left: 0.5rem;
+    width: 25px;
+    height: 25px;
+    transition: all 0.1s ease-in-out;
+  }
 }
