@@ -6,25 +6,25 @@ import { signIn } from "next-auth/react";
 
 interface DropdownItemsProps {}
 
-const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
-  const Providers = [
-    {
-      id: "p1",
-      provider: "google",
-      name: "Google",
-    },
-    {
-      id: "p2",
-      provider: "discord",
-      name: "Discord",
-    },
-    {
-      id: "p3",
-      provider: "github",
-      name: "GitHub",
-    },
-  ];
+export const Providers = [
+  {
+    id: "p1",
+    provider: "google",
+    name: "Google",
+  },
+  {
+    id: "p2",
+    provider: "discord",
+    name: "Discord",
+  },
+  {
+    id: "p3",
+    provider: "github",
+    name: "GitHub",
+  },
+];
 
+const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
   return (
     <ul className={classes.providersList}>
       {Providers.map((authProvider) => {

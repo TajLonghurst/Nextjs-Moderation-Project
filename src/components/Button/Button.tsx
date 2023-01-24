@@ -4,7 +4,7 @@ import Image from "next/image";
 
 interface DropdownProps {
   children: React.ReactNode;
-  onClick?: () => {};
+  onClick?: () => void;
   type: "button" | "submit" | "reset" | undefined;
 }
 
