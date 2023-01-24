@@ -6,6 +6,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  @include media-breakpoint-max($breakpoints-lg) {
+    & {
+      display: none;
+    }
+  }
   .navLink {
     position: relative;
     padding: 0.5rem;
