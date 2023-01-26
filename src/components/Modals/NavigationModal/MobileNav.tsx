@@ -52,7 +52,7 @@ const MobileNav: React.FC<MobileNavProps> = (props) => {
                 })}
               <li className={classes.navItems}>
                 <div className={classes.btnPostion}>
-                  <Button onClick={signUpbtnHandler} type={"button"}>
+                  <Button onClick={signUpbtnHandler} type={"button"} size={"small"}>
                     Sign In
                   </Button>
                 </div>

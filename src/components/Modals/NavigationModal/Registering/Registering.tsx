@@ -15,7 +15,12 @@ const Registering: React.FC<RegisteringProps> = (props) => {
       <ul className={classes.providersList}>
         {Providers.map((items) => {
           return (
-            <Button key={items.id} onClick={() => signIn(items.provider)} type={"button"}>
+            <Button
+              key={items.id}
+              onClick={() => signIn(items.provider)}
+              type={"button"}
+              size={"small"}
+            >
               <li className={classes.providerItems}>
                 <Image
                   src={`/assets/images/${items.provider}.svg`}
@@ -31,7 +36,7 @@ const Registering: React.FC<RegisteringProps> = (props) => {
         })}
       </ul>
       <div className={classes.btnPostion}>
-        <Button type="button" onClick={props.onClickBackBtn}>
+        <Button type="button" onClick={props.onClickBackBtn} size={"small"}>
           Go Back
         </Button>
       </div>

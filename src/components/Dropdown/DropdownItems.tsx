@@ -33,6 +33,7 @@ const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
             key={authProvider.id}
             onClick={() => signIn(authProvider.provider)}
             type={"button"}
+            size={"small"}
           >
             <li className={classes.providerItems}>
               <Image

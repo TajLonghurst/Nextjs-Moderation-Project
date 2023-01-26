@@ -1,1 +1,15 @@
+@import "./variables";
 
+@mixin Section() {
+  margin-inline: $pageMarginWidth;
+  @include media-breakpoint-max($breakpoints-xxl) {
+    & {
+      margin-inline: 2rem;
+    }
+  }
+  @include media-breakpoint-max($breakpoints-lg) {
+    & {
+      margin-inline: 2rem;
+    }
+  }
+}

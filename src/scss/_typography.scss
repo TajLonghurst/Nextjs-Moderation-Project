@@ -1,5 +1,6 @@
 $Inter-Light: "InterLight";
 $Inter-Regular: "InterRegular";
+$Inter-SemiBold: "InterSemiBold";
 $SourceSansPro-Regular: "SourceSansProRegular";
 $SourceSansPro-SemiBold: "SourceSansProSemiBold";
 
@@ -10,6 +11,10 @@ $SourceSansPro-SemiBold: "SourceSansProSemiBold";
 @font-face {
   font-family: "InterRegular";
   src: url(../../public/assets/Fonts/Inter-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "InterSemiBold";
+  src: url(../../public/assets/fonts/Inter-SemiBold.ttf) format("truetype");
 }
 @font-face {
   font-family: "SourceSansProRegular";

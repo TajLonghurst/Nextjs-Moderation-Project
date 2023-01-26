@@ -1,20 +1,5 @@
 @import "../../scss/index";
 
 .section {
-  padding-inline: $pageMarginWidth;
-  @include media-breakpoint-max($breakpoints-xxl) {
-    & {
-      padding-inline: 5rem;
-    }
-  }
-  @include media-breakpoint-max($breakpoints-lg) {
-    & {
-      padding-inline: 5rem;
-    }
-  }
-  @include media-breakpoint-max($breakpoints-sm) {
-    & {
-      padding-inline: 2rem;
-    }
-  }
+  @include Section();
 }

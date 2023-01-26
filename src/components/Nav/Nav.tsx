@@ -42,41 +42,43 @@ const Nav: React.FC<NavProps> = (props) => {
 
   return (
     <Fragment>
-      <nav className={classes.navBar}>
-        <div className={classes.navContent}>
-          <h1 className={classes.navLogo}>Valids</h1>
-          <ul className={classes.itemList}>
-            {navItems.map((items) => {
-              const activeTab = pathname === items.href;
-              return (
-                <NavItems
-                  key={items.id}
-                  title={items.title}
-                  id={items.id}
-                  href={items.href}
-                  activeTab={activeTab}
-                />
-              );
-            })}
-          </ul>
-        </div>
-        <div className={classes.navRightColum}>
-          <div className={classes.navProfile}>
-            <h1 onClick={dropdownHander} className={classes.userName}>
-              Taj Longhurst
-            </h1>
-            <div onClick={dropdownHander} className={classes.userImg}></div>
-            <Dropdown />
+      <nav className={classes.nav}>
+        <div className={classes.navBar}>
+          <div className={classes.navContent}>
+            <h1 className={classes.navLogo}>Valids</h1>
+            <ul className={classes.itemList}>
+              {navItems.map((items) => {
+                const activeTab = pathname === items.href;
+                return (
+                  <NavItems
+                    key={items.id}
+                    title={items.title}
+                    id={items.id}
+                    href={items.href}
+                    activeTab={activeTab}
+                  />
+                );
+              })}
+            </ul>
           </div>
-          <Image
-            className={classes.mobileIcon}
-            src={"/assets/icons/menuIcon.svg"}
-            alt={"failed to load"}
-            width={25}
-            height={25}
-            onClick={mobileNavhandler}
-          />
-          <NavigationModal navItems={navItems} />
+          <div className={classes.navRightColum}>
+            <div className={classes.navProfile}>
+              <h1 onClick={dropdownHander} className={classes.userName}>
+                Taj Longhurst
+              </h1>
+              <div onClick={dropdownHander} className={classes.userImg}></div>
+              <Dropdown />
+            </div>
+            <Image
+              className={classes.mobileIcon}
+              src={"/assets/icons/menuIcon.svg"}
+              alt={"failed to load"}
+              width={25}
+              height={25}
+              onClick={mobileNavhandler}
+            />
+            <NavigationModal navItems={navItems} />
+          </div>
         </div>
       </nav>
     </Fragment>

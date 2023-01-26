@@ -1,0 +1,82 @@
+@import "../../scss/index";
+
+.hero {
+  height: 100vh;
+  .row {
+    @include make-row();
+    height: 100%;
+    .col_7 {
+      position: relative;
+      //   height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include make-col(xs, 12);
+      @include make-col(sm, 12);
+      @include make-col(md, 12);
+      @include make-col(lg, 7);
+      @include make-col(xl, 7);
+      @include make-col(xxl, 7);
+      .homepage {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        .subHeader {
+          color: $SecondaryHeaderColor;
+          font-family: $Inter-Light;
+          font-size: 23px;
+          font-weight: lighter;
+          margin-bottom: 0rem;
+        }
+        .header {
+          color: $PrimaryTextColor;
+          font-family: $Inter-Regular;
+          font-size: 30px;
+          margin-bottom: 0rem;
+          font-weight: normal;
+          .textHighlightOne {
+            color: $PrimaryTextColor;
+            font-family: $Inter-SemiBold;
+            font-size: 30px;
+            margin-bottom: 0rem;
+            font-weight: bold;
+          }
+          .textHighlightTwo {
+            color: $ThridTextColor;
+            font-family: $Inter-SemiBold;
+            font-size: 30px;
+            margin-bottom: 0rem;
+            font-weight: bold;
+          }
+        }
+        .introText {
+          width: 85%;
+          color: $PrimaryTextColor;
+          font-family: $Inter-Regular;
+          font-size: 18px;
+          margin-bottom: 0rem;
+          font-weight: normal;
+          line-height: 33px;
+        }
+        .btnPostion {
+          margin: 0rem;
+          margin-top: 5rem;
+          padding: 0rem;
+        }
+      }
+    }
+    .col_5 {
+      position: relative;
+      @include make-col(xs, 12);
+      @include make-col(sm, 12);
+      @include make-col(md, 12);
+      @include make-col(lg, 5);
+      @include make-col(xl, 5);
+      @include make-col(xxl, 5);
+    }
+  }
+}
