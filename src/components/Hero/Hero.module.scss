@@ -77,6 +77,12 @@
       @include make-col(lg, 5);
       @include make-col(xl, 5);
       @include make-col(xxl, 5);
+      .iphone {
+        .iphoneBody {
+          .iphoneContent {
+          }
+        }
+      }
     }
   }
 }

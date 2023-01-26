@@ -27,7 +27,11 @@ const Hero = () => {
             </div>
           </div>
           <div className={classes.col_5}>
-            <div>Fuck me</div>
+            <div className={classes.iphone}>
+              <div className={classes.iphoneBody}>
+                <div className={classes.iphoneContent}></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
