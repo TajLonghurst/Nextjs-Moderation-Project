@@ -29,8 +29,12 @@ const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
     <ul className={classes.providersList}>
       {Providers.map((authProvider) => {
         return (
-          <Button onClick={() => signIn(authProvider.provider)} type={"button"}>
-            <li className={classes.providerItems} key={authProvider.id}>
+          <Button
+            key={authProvider.id}
+            onClick={() => signIn(authProvider.provider)}
+            type={"button"}
+          >
+            <li className={classes.providerItems}>
               <Image
                 src={`/assets/images/${authProvider.provider}.svg`}
                 alt={`${authProvider.name}Auth`}

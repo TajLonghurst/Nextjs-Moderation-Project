@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Dropdown from "../Dropdown/Dropdown";
 import UiContentContext from "../../store/ui-Content";
 import Image from "next/image";
-import { NavigationModal } from "../Modals/NavigationModal/NavigationModal";
+import NavigationModal from "../Modals/NavigationModal/NavigationModal";
 
 const navItems = [
   {

@@ -30,11 +30,11 @@ const Registering: React.FC<RegisteringProps> = (props) => {
           );
         })}
       </ul>
-      <li className={classes.providerItems}>
+      <div className={classes.btnPostion}>
         <Button type="button" onClick={props.onClickBackBtn}>
-          Cancel
+          Go Back
         </Button>
-      </li>
+      </div>
     </div>
   );
 };

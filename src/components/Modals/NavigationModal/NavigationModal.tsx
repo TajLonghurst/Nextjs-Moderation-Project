@@ -12,7 +12,7 @@ export interface MobileNavProps {
   navItems: Items[];
 }
 
-export const NavigationModal: React.FC<MobileNavProps> = (props) => {
+const NavigationModal: React.FC<MobileNavProps> = (props) => {
   const ref = useRef<HTMLElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -25,3 +25,5 @@ export const NavigationModal: React.FC<MobileNavProps> = (props) => {
     ? ReactDOM.createPortal(<MobileNav navItems={props.navItems} />, ref.current)
     : null;
 };
+
+export default NavigationModal;

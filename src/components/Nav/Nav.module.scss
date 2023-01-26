@@ -67,21 +67,21 @@
         color: $PrimaryTextColor;
         font-weight: 400;
         margin-right: 1.5rem;
-        z-index: 3;
         user-select: none;
+        z-index: 6;
         cursor: pointer;
         &:hover {
           color: $SecondaryHeaderColor;
         }
       }
       .userImg {
+        z-index: 6;
         display: block;
         content: none;
         width: 35px;
         height: 35px;
         background-image: $ProfileImgColor;
         border-radius: 50%;
-        z-index: 3;
         cursor: pointer;
       }
     }

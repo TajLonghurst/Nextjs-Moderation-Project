@@ -4,7 +4,7 @@ import Section from "../Layout/Section";
 const Hero = () => {
   return (
     <Section>
-      <div>Home</div>
+      <div className={classes.row}></div>
     </Section>
   );
 };

@@ -1,11 +1,10 @@
 import { type NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import Hero from "../components/Hero/Hero";
-// import {useSession } from "next-auth/react";
-
-// import { api } from "../utils/api";
 import { Fragment } from "react";
 import { type AppProps } from "next/app";
+// import {useSession } from "next-auth/react";
+// import { api } from "../utils/api";
 
 interface IndexProps {
   providers: AppProps;
