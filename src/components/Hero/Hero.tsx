@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import Section from "../Layout/Section";
 import classes from "./Hero.module.scss";
+import HeroBackground from "../UI/Svgs/HeroBackground";
 
 const Hero = () => {
   return (
@@ -27,9 +28,12 @@ const Hero = () => {
             </div>
           </div>
           <div className={classes.col_5}>
-            <div className={classes.iphone}>
-              <div className={classes.iphoneBody}>
-                <div className={classes.iphoneContent}></div>
+            <div className={classes.iphonebackground}>
+              <HeroBackground />
+              <div className={classes.iphone}>
+                <div className={classes.iphoneBody}>
+                  <div className={classes.iphoneContent}></div>
+                </div>
               </div>
             </div>
           </div>
