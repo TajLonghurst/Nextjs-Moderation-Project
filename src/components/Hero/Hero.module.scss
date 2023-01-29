@@ -7,7 +7,6 @@
     height: 100%;
     .col_7 {
       position: relative;
-      //   height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -71,6 +70,10 @@
     }
     .col_5 {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       @include make-col(xs, 12);
       @include make-col(sm, 12);
       @include make-col(md, 12);
@@ -78,7 +81,28 @@
       @include make-col(xl, 5);
       @include make-col(xxl, 5);
       .iphone {
+        --phoneBorderRadius: 36px;
+        --phoneScreenBorderRadius: 33px;
+        --phoneWidth: 264px;
+        --phoneHeight: 533px;
+        width: var(--phoneWidth);
+        height: var(--phoneHeight);
+        padding: 8px;
+        border-radius: var(--phoneBorderRadius);
+        background: #f6f9fc;
+        box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%),
+          inset 0 -2px 6px 0 rgb(10 37 64 / 35%);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-size: 16px;
         .iphoneBody {
+          position: relative;
+          height: 100%;
+          border-radius: var(--phoneScreenBorderRadius);
+          mask-image: -webkit-radial-gradient(#fff, #000);
+          background: #fff;
           .iphoneContent {
           }
         }
