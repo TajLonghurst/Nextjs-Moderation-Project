@@ -28,8 +28,8 @@ const Hero = () => {
             </div>
           </div>
           <div className={classes.col_5}>
-            <div className={classes.iphonebackground}>
-              <HeroBackground />
+            <HeroBackground />
+            <div className={classes.iphonePostion}>
               <div className={classes.iphone}>
                 <div className={classes.iphoneBody}>
                   <div className={classes.iphoneContent}></div>
