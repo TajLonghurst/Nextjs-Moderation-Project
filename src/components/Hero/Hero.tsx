@@ -14,13 +14,13 @@ const FAKE_DATA = [
   },
   {
     id: "2",
-    postID: "A9B-JHD2-533",
+    postID: "CCA-JD52-534",
     status: false,
     reason: undefined,
   },
   {
     id: "3",
-    postID: "A9B-JHD2-533",
+    postID: "BVT-JDET-535",
     status: true,
     reason: "Violence",
   },
