@@ -3,6 +3,28 @@ import Button from "../Button/Button";
 import Section from "../Layout/Section";
 import classes from "./Hero.module.scss";
 import HeroBackground from "../UI/Svgs/HeroBackground";
+import HeroNotification from "../Messages/HeroNotification/HeroNotification";
+
+const FAKE_DATA = [
+  {
+    id: "1",
+    postID: "A9B-JHD2-533",
+    status: true,
+    reason: "Hate Speech",
+  },
+  {
+    id: "2",
+    postID: "A9B-JHD2-533",
+    status: false,
+    reason: undefined,
+  },
+  {
+    id: "3",
+    postID: "A9B-JHD2-533",
+    status: true,
+    reason: "Violence",
+  },
+];
 
 const Hero = () => {
   return (
@@ -21,7 +43,7 @@ const Hero = () => {
                 instructions provided by you, so that you can quickly build unique content.
               </p>
               <div className={classes.btnPostion}>
-                <Button type="button" size={"large"}>
+                <Button type="button" size={"large"} icon={true} style={{ fontSize: "20px" }}>
                   Get Started
                 </Button>
               </div>
@@ -32,7 +54,18 @@ const Hero = () => {
             <div className={classes.iphonePostion}>
               <div className={classes.iphone}>
                 <div className={classes.iphoneBody}>
-                  <div className={classes.iphoneContent}></div>
+                  <ul className={classes.iphoneContent}>
+                    {FAKE_DATA.map((items) => {
+                      return (
+                        <HeroNotification
+                          key={items.id}
+                          reason={items.reason}
+                          status={items.status}
+                          postID={items.postID}
+                        />
+                      );
+                    })}
+                  </ul>
                 </div>
               </div>
             </div>

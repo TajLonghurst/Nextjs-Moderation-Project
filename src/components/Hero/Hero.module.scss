@@ -17,6 +17,12 @@
       @include make-col(lg, 7);
       @include make-col(xl, 7);
       @include make-col(xxl, 7);
+      // @include make-col(xs, 6);
+      // @include make-col(sm, 6);
+      // @include make-col(md, 6);
+      // @include make-col(lg, 6);
+      // @include make-col(xl, 6);
+      // @include make-col(xxl, 6);
       .homepage {
         position: absolute;
         display: flex;
@@ -80,6 +86,16 @@
       @include make-col(lg, 5);
       @include make-col(xl, 5);
       @include make-col(xxl, 5);
+      // @include make-col(xs, 6);
+      // @include make-col(sm, 6);
+      // @include make-col(md, 6);
+      // @include make-col(lg, 6);
+      // @include make-col(xl, 6);
+      // @include make-col(xxl, 6);
+      @include media-breakpoint-max($breakpoints-lg) {
+        display: none;
+      }
+
       .iphonePostion {
         position: absolute;
         top: 50%;
@@ -107,9 +123,12 @@
             position: relative;
             height: 100%;
             border-radius: var(--phoneScreenBorderRadius);
-            mask-image: -webkit-radial-gradient(#fff, #000);
             background: #fff;
             .iphoneContent {
+              position: absolute;
+              padding: 0rem;
+              margin: 0rem;
+              margin-left: 1rem;
             }
           }
         }

@@ -6,29 +6,28 @@ interface DropdownProps {
   children: React.ReactNode;
   onClick?: () => void;
   type: "button" | "submit" | "reset" | undefined;
-  size: "large" | "small" | String;
+  size: "small" | "large" | string;
+  icon: Boolean;
+  style?: {};
+  iconSize?: number;
 }
 
 const Button: React.FC<DropdownProps> = (props) => {
-  const btnSize = props.size === "large" ? 20 : 16;
-  const iconSize = props.size === "large" ? 28 : 23;
+  // const;
 
   return (
-    <button
-      className={classes.btn}
-      style={{ fontSize: `${btnSize}px` }}
-      type={props.type}
-      onClick={props.onClick}
-    >
+    <button className={classes.btn} style={props.style} type={props.type} onClick={props.onClick}>
       {props.children}
-      <Image
-        src={`/assets/icons/ArrowRightBlue.svg`}
-        alt={"ArrowIcon"}
-        width={30}
-        height={30}
-        className={classes.icon}
-        style={{ height: iconSize, width: iconSize }}
-      />
+      {props.icon && (
+        <Image
+          src={`/assets/icons/ArrowRightBlue.svg`}
+          alt={"ArrowIcon"}
+          width={30}
+          height={30}
+          className={classes.icon}
+          style={{ height: props.iconSize, width: props.iconSize }}
+        />
+      )}
     </button>
   );
 };

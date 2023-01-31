@@ -1,6 +1,8 @@
 $PrimaryTextColor: #3a3a3a;
 $SecondaryTextColor: #0788ff;
 $ThridTextColor: #aa9cff;
+$FourthTextColor: #777777;
+$FithtextColor: #000;
 $SecondaryHeaderColor: #9f9f9f;
 $PrimaryBackgroundColor: #fafafa;
 $ProfileImgColor: linear-gradient(280deg, #aa9cff, #aa9cff, #70a5ff, #37d2f3, #37d2f3);
@@ -15,6 +17,7 @@ $breakpoints-md: 768px;
 $breakpoints-lg: 992px;
 $breakpoints-xl: 1200px;
 $breakpoints-xxl: 1400px;
+// $breakpoints-xxxl: 1500px;
 
 $grid-columns: 12;
 $breakpoint-Arry: (xs, sm, md, lg, xl, xxl);

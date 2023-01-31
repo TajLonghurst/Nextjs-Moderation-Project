@@ -2,6 +2,11 @@
 
 @mixin Section() {
   margin-inline: $pageMarginWidth;
+  // @include media-breakpoint-max($breakpoints-xxxl) {
+  //   & {
+  //     margin-inline: 10rem;
+  //   }
+  // }
   @include media-breakpoint-max($breakpoints-xxl) {
     & {
       margin-inline: 2rem;

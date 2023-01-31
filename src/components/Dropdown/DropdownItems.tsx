@@ -34,6 +34,7 @@ const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
             onClick={() => signIn(authProvider.provider)}
             type={"button"}
             size={"small"}
+            icon={true}
           >
             <li className={classes.providerItems}>
               <Image
