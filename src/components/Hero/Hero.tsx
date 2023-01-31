@@ -66,6 +66,9 @@ const Hero = () => {
                       );
                     })}
                   </ul>
+                  <div className={classes.btn}></div>
+                  <p className={classes.btnText}>Remove Content</p>
+                  <div className={classes.bg}></div>
                 </div>
               </div>
             </div>

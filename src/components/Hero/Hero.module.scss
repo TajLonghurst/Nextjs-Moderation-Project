@@ -17,19 +17,10 @@
       @include make-col(lg, 7);
       @include make-col(xl, 7);
       @include make-col(xxl, 7);
-      // @include make-col(xs, 6);
-      // @include make-col(sm, 6);
-      // @include make-col(md, 6);
-      // @include make-col(lg, 6);
-      // @include make-col(xl, 6);
-      // @include make-col(xxl, 6);
       .homepage {
         position: absolute;
         display: flex;
         flex-direction: column;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
         .subHeader {
           color: $SecondaryHeaderColor;
           font-family: $Inter-Light;
@@ -86,16 +77,10 @@
       @include make-col(lg, 5);
       @include make-col(xl, 5);
       @include make-col(xxl, 5);
-      // @include make-col(xs, 6);
-      // @include make-col(sm, 6);
-      // @include make-col(md, 6);
-      // @include make-col(lg, 6);
-      // @include make-col(xl, 6);
-      // @include make-col(xxl, 6);
+
       @include media-breakpoint-max($breakpoints-lg) {
         display: none;
       }
-
       .iphonePostion {
         position: absolute;
         top: 50%;
@@ -130,6 +115,43 @@
               margin: 0rem;
               margin-left: 1rem;
             }
+          }
+          .btn {
+            position: absolute;
+            top: 91%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 0.5rem;
+            width: 70%;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background: linear-gradient(90deg, #fff, #0787ff73) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            z-index: 1;
+          }
+          .btnText {
+            position: absolute;
+            z-index: 2;
+            top: 88.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $SecondaryTextColor;
+            font-style: $Inter-Regular;
+            font-size: 13px;
+          }
+          .bg {
+            top: 91%;
+            left: 50%;
+            border-radius: 10px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 38px;
+            content: "";
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           }
         }
       }
