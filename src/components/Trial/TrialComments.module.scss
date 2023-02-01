@@ -4,16 +4,26 @@
   position: relative;
   margin: 0rem;
   padding: 0rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
   height: 20rem;
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    // background: red;
-    background-image: $MessageFade;
-    height: 120px;
-  }
+  overflow-y: auto;
+  //   &:after {
+  //     content: "";
+  //     position: absolute;
+  //     left: 0;
+  //     bottom: 0;
+  //     width: 100%;
+  //     background-image: $MessageFade;
+  //     height: 120px;
+  //   }
+}
+.bottomFade {
+  content: "";
+  position: relative;
+  //   left: 0;
+  //   top: 0;
+  margin-top: -120px;
+  width: 95%;
+  background-image: $MessageFade;
+  height: 120px;
 }

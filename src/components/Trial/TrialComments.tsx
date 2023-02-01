@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import UserComment from "../Messages/UserMessage/UserComment";
 import classes from "./TrialComments.module.scss";
 
@@ -26,18 +26,21 @@ const FAKE_DATA = [
 
 const TrialComments = () => {
   return (
-    <ul className={classes.commentList}>
-      {FAKE_DATA.map((comment) => {
-        return (
-          <UserComment
-            key={comment.id}
-            profilePicture={comment.profilePicture}
-            comment={comment.comment}
-            userName={comment.userName}
-          />
-        );
-      })}
-    </ul>
+    <Fragment>
+      <ul className={classes.commentList}>
+        {FAKE_DATA.map((comment) => {
+          return (
+            <UserComment
+              key={comment.id}
+              profilePicture={comment.profilePicture}
+              comment={comment.comment}
+              userName={comment.userName}
+            />
+          );
+        })}
+      </ul>
+      <div className={classes.bottomFade}></div>
+    </Fragment>
   );
 };
 
