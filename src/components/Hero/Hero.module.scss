@@ -21,33 +21,19 @@
         position: absolute;
         display: flex;
         flex-direction: column;
-        .subHeader {
-          color: $SecondaryHeaderColor;
-          font-family: $Inter-Light;
-          font-size: 23px;
-          font-weight: lighter;
-          margin-bottom: 0rem;
-        }
-        .header {
+        .textHighlightOne {
           color: $PrimaryTextColor;
-          font-family: $Inter-Regular;
+          font-family: $Inter-SemiBold;
           font-size: 30px;
           margin-bottom: 0rem;
-          font-weight: normal;
-          .textHighlightOne {
-            color: $PrimaryTextColor;
-            font-family: $Inter-SemiBold;
-            font-size: 30px;
-            margin-bottom: 0rem;
-            font-weight: bold;
-          }
-          .textHighlightTwo {
-            color: $ThridTextColor;
-            font-family: $Inter-SemiBold;
-            font-size: 30px;
-            margin-bottom: 0rem;
-            font-weight: bold;
-          }
+          font-weight: bold;
+        }
+        .textHighlightTwo {
+          color: $ThridTextColor;
+          font-family: $Inter-SemiBold;
+          font-size: 30px;
+          margin-bottom: 0rem;
+          font-weight: bold;
         }
         .introText {
           width: 85%;

@@ -1,12 +1,14 @@
 import React from "react";
-import Button from "../../Button/Button";
+import Button from "../../UI/Button/Button";
 import classes from "./AdminNotification.module.scss";
 import Image from "next/image";
 
 interface AdminNotificationProps {
-  postID: string;
+  postId: string;
   status: boolean;
   reason: string | undefined;
+  userName: string;
+  comment: string;
 }
 
 const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
@@ -18,7 +20,7 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
       <div className={classes.notificationBody}>
         <div className={classes.content}>
           <p className={classes.item}>
-            Post ID: <span className={classes.itemDetails}>{props.postID}</span>
+            Post ID: <span className={classes.itemDetails}>{props.postId}</span>
           </p>
           <p className={classes.item}>
             Status: <span className={classes.itemDetails}>{status}</span>
@@ -30,7 +32,7 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
           )}
           {props.status && (
             <div className={classes.btnPostion}>
-              <Button style={{ fontSize: "15px" }} type={"button"} size={"small"} icon={false}>
+              <Button style={{ fontSize: "15px" }} type={"button"} icon={false}>
                 View Details
               </Button>
             </div>

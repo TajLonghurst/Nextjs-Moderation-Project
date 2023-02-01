@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../Button/Button";
+import Button from "../../UI/Button/Button";
 import classes from "./HeroNotification.module.scss";
 import Image from "next/image";
 
@@ -31,12 +31,7 @@ const HeroNotification: React.FC<HeroNotificationProps> = (props) => {
           )}
           {props.status && (
             <div className={classes.btnPostion}>
-              <Button
-                style={{ fontSize: "15px", cursor: "auto" }}
-                type={"button"}
-                size={"small"}
-                icon={false}
-              >
+              <Button style={{ fontSize: "15px", cursor: "auto" }} type={"button"} icon={false}>
                 View Details
               </Button>
             </div>

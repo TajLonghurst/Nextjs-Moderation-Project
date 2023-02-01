@@ -5,7 +5,7 @@ import { MobileNavProps } from "./NavigationModal";
 import { useRouter } from "next/router";
 import UiContentContext from "../../../store/ui-Content";
 import Image from "next/image";
-import Button from "../../Button/Button";
+import Button from "../../UI/Button/Button";
 import Registering from "./Registering/Registering";
 
 const MobileNav: React.FC<MobileNavProps> = (props) => {
@@ -52,7 +52,7 @@ const MobileNav: React.FC<MobileNavProps> = (props) => {
                 })}
               <li className={classes.navItems}>
                 <div className={classes.btnPostion}>
-                  <Button onClick={signUpbtnHandler} type={"button"} size={"small"}>
+                  <Button onClick={signUpbtnHandler} type={"button"} icon={true}>
                     Sign In
                   </Button>
                 </div>

@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import classes from "./Registering.module.scss";
 import { signIn } from "next-auth/react";
-import Button from "../../../Button/Button";
+import Button from "../../../UI/Button/Button";
 import Image from "next/image";
-import { Providers } from "../../../Dropdown/DropdownItems";
+import { Providers } from "../../../UI/Dropdown/DropdownItems";
 
 interface RegisteringProps {
   onClickBackBtn: () => void;
@@ -19,7 +19,7 @@ const Registering: React.FC<RegisteringProps> = (props) => {
               key={items.id}
               onClick={() => signIn(items.provider)}
               type={"button"}
-              size={"small"}
+              icon={true}
             >
               <li className={classes.providerItems}>
                 <Image
@@ -36,7 +36,7 @@ const Registering: React.FC<RegisteringProps> = (props) => {
         })}
       </ul>
       <div className={classes.btnPostion}>
-        <Button type="button" onClick={props.onClickBackBtn} size={"small"}>
+        <Button type="button" onClick={props.onClickBackBtn} icon={true}>
           Go Back
         </Button>
       </div>

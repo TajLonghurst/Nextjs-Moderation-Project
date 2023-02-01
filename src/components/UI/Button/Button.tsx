@@ -6,7 +6,6 @@ interface DropdownProps {
   children: React.ReactNode;
   onClick?: () => void;
   type: "button" | "submit" | "reset" | undefined;
-  size: "small" | "large" | string;
   icon: Boolean;
   style?: {};
   iconSize?: number;

@@ -3,6 +3,7 @@ import Head from "next/head";
 import Hero from "../components/Hero/Hero";
 import { Fragment } from "react";
 import { type AppProps } from "next/app";
+import Trial from "../components/Trial/Trial";
 // import {useSession } from "next-auth/react";
 // import { api } from "../utils/api";
 
@@ -19,6 +20,7 @@ const Home: NextPage<IndexProps> = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
+      <Trial />
     </Fragment>
   );
 };

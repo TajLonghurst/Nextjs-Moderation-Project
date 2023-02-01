@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import classes from "./Dropdown.module.scss";
-import UiContentContext from "../../store/ui-Content";
+import UiContentContext from "../../../store/ui-Content";
 import DropdownItems from "./DropdownItems";
 
 interface DropdownProps {}

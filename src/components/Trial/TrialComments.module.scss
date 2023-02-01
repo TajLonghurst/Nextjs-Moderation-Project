@@ -1,0 +1,19 @@
+@import "../../scss/index";
+
+.commentList {
+  position: relative;
+  margin: 0rem;
+  padding: 0rem;
+  margin-top: 4rem;
+  height: 20rem;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    // background: red;
+    background-image: $MessageFade;
+    height: 120px;
+  }
+}

@@ -1,0 +1,39 @@
+@import "../../../scss/index";
+
+.commentItem {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  .comment {
+    display: flex;
+    flex-direction: row;
+    .profileImge {
+      width: 40px;
+      height: 40px;
+      background-color: aqua;
+      margin-right: 1rem;
+      border-radius: 50%;
+      min-width: 40px;
+      content: "";
+    }
+    .commentContent {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      .userName {
+        margin-top: 12px;
+        font-size: 15px;
+        font-family: $Inter-SemiBold;
+        color: $UserNameColor;
+      }
+      .text {
+        margin: 0rem;
+        margin-bottom: 1rem;
+        font-style: 15px;
+        font-family: $Inter-Regular;
+        color: $FourthTextColor;
+        line-height: 22px;
+      }
+    }
+  }
+}

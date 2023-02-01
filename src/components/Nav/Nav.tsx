@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from "react";
 import NavItems from "./NavItems";
 import classes from "./Nav.module.scss";
 import { useRouter } from "next/router";
-import Dropdown from "../Dropdown/Dropdown";
+import Dropdown from "../UI/Dropdown/Dropdown";
 import UiContentContext from "../../store/ui-Content";
 import Image from "next/image";
 import NavigationModal from "../Modals/NavigationModal/NavigationModal";

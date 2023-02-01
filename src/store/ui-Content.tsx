@@ -10,8 +10,9 @@ const UiContentContext = createContext({
 });
 
 export const UiContentContextProvider: React.FC<{ children: React.ReactNode }> = (props) => {
+  // const ref = useRef<HTMLElement | null>(null);
   const [dropdownActive, setDropdownActive] = useState(false);
-  const [mobileNavIsActive, setmMbileNavIsActive] = useState(false);
+  const [mobileNavIsActive, setMobileNavIsActive] = useState(false);
   const [registerIsActive, setRegisterBtn] = useState(false);
 
   const dropdownhandler = () => {
@@ -19,7 +20,7 @@ export const UiContentContextProvider: React.FC<{ children: React.ReactNode }> =
   };
 
   const mobileNavhandler = () => {
-    setmMbileNavIsActive((prevState) => !prevState);
+    setMobileNavIsActive((prevState) => !prevState);
   };
 
   const registerbtnHandler = () => {
