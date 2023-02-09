@@ -10,16 +10,15 @@
     .profileImge {
       width: 40px;
       height: 40px;
-      background-color: aqua;
       margin-right: 1rem;
       border-radius: 50%;
       min-width: 40px;
       content: "";
+      // background-image: $ProfileImgColor2;
     }
     .commentContent {
       display: flex;
       flex-direction: column;
-      width: 75%;
       .userName {
         margin-top: 12px;
         font-size: 15px;

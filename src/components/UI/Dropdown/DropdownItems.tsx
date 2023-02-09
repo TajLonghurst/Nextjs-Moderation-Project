@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./DropdownItems.module.scss";
 import Button from "../Button/Button";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 interface DropdownItemsProps {}
 
@@ -25,30 +25,37 @@ export const Providers = [
 ];
 
 const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
+  const { data: userSession } = useSession();
+
   return (
     <ul className={classes.providersList}>
-      {Providers.map((authProvider) => {
-        return (
-          <Button
-            key={authProvider.id}
-            onClick={() => signIn(authProvider.provider)}
-            type={"button"}
-            size={"small"}
-            icon={true}
-          >
-            <li className={classes.providerItems}>
-              <Image
-                src={`/assets/images/${authProvider.provider}.svg`}
-                alt={`${authProvider.name}Auth`}
-                width={400}
-                height={400}
-                className={classes.providerImg}
-              />
-              {authProvider.name}
-            </li>
-          </Button>
-        );
-      })}
+      {!userSession?.user &&
+        Providers.map((authProvider) => {
+          return (
+            <Button
+              key={authProvider.id}
+              onClick={() => signIn(authProvider.provider)}
+              type={"button"}
+              icon={true}
+            >
+              <li className={classes.providerItems}>
+                <Image
+                  src={`/assets/images/${authProvider.provider}.svg`}
+                  alt={`${authProvider.name}Auth`}
+                  width={400}
+                  height={400}
+                  className={classes.providerImg}
+                />
+                {authProvider.name}
+              </li>
+            </Button>
+          );
+        })}
+      {userSession?.user && (
+        <Button onClick={() => signOut()} type={"button"} icon={true}>
+          Sign Out
+        </Button>
+      )}
     </ul>
   );
 };

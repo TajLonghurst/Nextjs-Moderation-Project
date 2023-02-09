@@ -33,6 +33,11 @@ export const authOptions: NextAuthOptions = {
       clientId: env.GITHUB_CLIENT_ID,
       clientSecret: env.GITHUB_CLIENT_SECRET,
     }),
+    // profile(profile) {
+    //   return {
+    //     : profile.cheese
+    //   };
+    // },
     /**
      * ...add more providers here
      *
@@ -45,6 +50,7 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     error: "/auth/error",
+    // signIn: "/auth/signup",
   },
   secret: env.NEXTAUTH_SECRET,
 };

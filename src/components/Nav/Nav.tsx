@@ -6,6 +6,8 @@ import Dropdown from "../UI/Dropdown/Dropdown";
 import UiContentContext from "../../store/ui-Content";
 import Image from "next/image";
 import NavigationModal from "../Modals/NavigationModal/NavigationModal";
+import { useSession } from "next-auth/react";
+import Button from "../UI/Button/Button";
 
 const navItems = [
   {
@@ -28,6 +30,7 @@ const navItems = [
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = (props) => {
+  const { data: userSession } = useSession();
   const uiContextCtx = useContext(UiContentContext);
 
   const { pathname } = useRouter();
@@ -63,10 +66,28 @@ const Nav: React.FC<NavProps> = (props) => {
           </div>
           <div className={classes.navRightColum}>
             <div className={classes.navProfile}>
-              <h1 onClick={dropdownHander} className={classes.userName}>
-                Taj Longhurst
-              </h1>
-              <div onClick={dropdownHander} className={classes.userImg}></div>
+              {userSession?.user && (
+                <div className={classes.logInOptions}>
+                  <h1 onClick={dropdownHander} className={classes.userName}>
+                    {userSession?.user?.name}
+                  </h1>
+                  <div onClick={dropdownHander} className={classes.userImg}></div>
+                </div>
+              )}
+              {!userSession?.user && (
+                <div className={classes.logInOptions}>
+                  <Button
+                    style={{ fontSize: "18px" }}
+                    onClick={dropdownHander}
+                    type="button"
+                    icon={true}
+                  >
+                    Sign In
+                  </Button>
+                  <div onClick={dropdownHander} className={classes.tempImg}></div>
+                </div>
+              )}
+
               <Dropdown />
             </div>
             <Image

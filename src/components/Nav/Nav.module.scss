@@ -56,6 +56,13 @@
         @include media-breakpoint-max($breakpoints-sm) {
           display: none;
         }
+        .logInOptions {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          z-index: 6;
+        }
         .userName {
           font-family: $SourceSansPro-Regular;
           font-size: 18px;
@@ -64,19 +71,28 @@
           font-weight: 400;
           margin-right: 1.5rem;
           user-select: none;
-          z-index: 6;
           cursor: pointer;
           &:hover {
             color: $SecondaryHeaderColor;
           }
         }
         .userImg {
-          z-index: 6;
           display: block;
           content: none;
           width: 35px;
           height: 35px;
           background-image: $ProfileImgColor;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .tempImg {
+          margin-left: 1rem;
+          z-index: 6;
+          display: block;
+          content: none;
+          width: 35px;
+          height: 35px;
+          background-color: $secondProfileImg;
           border-radius: 50%;
           cursor: pointer;
         }

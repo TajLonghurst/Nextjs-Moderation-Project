@@ -12,7 +12,9 @@ const UserComment: React.FC<UserCommentProps> = (props) => {
     <li className={classes.commentItem}>
       <div className={classes.comment}>
         <div
-          style={{ backgroundColor: props.profilePicture }}
+          style={{
+            backgroundImage: `linear-gradient(280deg, ${props.profilePicture})`,
+          }}
           className={classes.profileImge}
         ></div>
         <div className={classes.commentContent}>
