@@ -12,8 +12,6 @@ interface DropdownProps {
 }
 
 const Button: React.FC<DropdownProps> = (props) => {
-  // const;
-
   return (
     <button className={classes.btn} style={props.style} type={props.type} onClick={props.onClick}>
       {props.children}

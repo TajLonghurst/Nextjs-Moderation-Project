@@ -26,12 +26,12 @@ model Comment {
 
 model CommentModeration {
     id        String   @id @default(cuid())
-    status    String
-    reason    String
+    status    Boolean
+    reason    String[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     Comment   Comment? @relation(fields: [commentId], references: [id])
-    commentId String?
+    commentId String?  @unique
 }
 
 // Necessary for Next auth
