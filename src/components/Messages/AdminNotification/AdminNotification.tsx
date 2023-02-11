@@ -6,9 +6,9 @@ import Image from "next/image";
 interface AdminNotificationProps {
   postId: string;
   status: boolean;
-  reason: string | undefined;
-  userName: string;
-  comment: string;
+  reason: string[];
+  name: string | null | undefined;
+  comment: string | undefined;
 }
 
 const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
@@ -28,6 +28,11 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
           {props.reason && (
             <p className={classes.item}>
               Reason: <span className={classes.itemDetails}>{props.reason}</span>
+            </p>
+          )}
+          {props.comment && (
+            <p className={classes.item}>
+              Reason: <span className={classes.itemDetails}>{props.comment}</span>
             </p>
           )}
           {props.status && (

@@ -47,4 +47,14 @@ export const commentsRouter = createTRPCRouter({
         });
       }
     }),
+  readComments: protectedProcedure.query(async ({ ctx }) => {
+    return ctx.prisma.comment.findMany({
+      select: {
+        User: true,
+        comment: true,
+        id: true,
+        createdAt: true,
+      },
+    });
+  }),
 });

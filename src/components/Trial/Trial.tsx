@@ -7,8 +7,23 @@ import P from "../UI/P/P";
 import TrialComments from "./TrialComments";
 import TrialForm from "./TrialForm";
 import TrialAdminComments from "./TrialAdminComments";
+import { api } from "../../utils/api";
 
 const Trial = () => {
+  const {
+    data: commetsData,
+    isSuccess: successComment,
+    isLoading: isLoadingComment,
+  } = api.comments.readComments.useQuery();
+
+  const {
+    data: adminNotifData,
+    isSuccess: successAdminNotif,
+    isLoading: isLoadingAdminNotif,
+  } = api.adminNotif.readAdminNotif.useQuery();
+
+  const submitFormHander = () => {};
+
   return (
     <Section>
       <div className={classes.trial}>
@@ -25,10 +40,18 @@ const Trial = () => {
               </P> */}
               <TrialForm />
             </div>
-            <TrialComments />
+            <TrialComments
+              commentsData={commetsData}
+              isLoading={isLoadingComment}
+              isSuccess={successComment}
+            />
           </div>
           <div className={classes.col_right}>
-            <TrialAdminComments />
+            <TrialAdminComments
+              adminData={adminNotifData}
+              isLoading={isLoadingAdminNotif}
+              isSuccess={successAdminNotif}
+            />
           </div>
         </div>
       </div>

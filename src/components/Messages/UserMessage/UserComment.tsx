@@ -2,9 +2,9 @@ import React from "react";
 import classes from "./UserComment.module.scss";
 
 interface UserCommentProps {
-  profilePicture: string;
+  profilePicture?: string;
   comment: string;
-  userName: string;
+  name: string | null | undefined;
 }
 
 const UserComment: React.FC<UserCommentProps> = (props) => {
@@ -12,13 +12,13 @@ const UserComment: React.FC<UserCommentProps> = (props) => {
     <li className={classes.commentItem}>
       <div className={classes.comment}>
         <div
-          style={{
-            backgroundImage: `linear-gradient(280deg, ${props.profilePicture})`,
-          }}
+          // style={{
+          //   backgroundImage: `linear-gradient(280deg, ${props.profilePicture})`,
+          // }}
           className={classes.profileImge}
         ></div>
         <div className={classes.commentContent}>
-          <h3 className={classes.userName}>{props.userName}</h3>
+          <h3 className={classes.userName}>{props.name}</h3>
           <p className={classes.text}>{props.comment}</p>
         </div>
       </div>
