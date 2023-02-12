@@ -46,7 +46,7 @@ const Hero = () => {
                 instructions provided by you, so that you can quickly build unique content.
               </P>
               <div className={classes.btnPostion}>
-                <Button type="button" icon={true} style={{ fontSize: "20px" }}>
+                <Button type="button" icon={"arrow"} style={{ fontSize: "20px" }}>
                   Get Started
                 </Button>
               </div>

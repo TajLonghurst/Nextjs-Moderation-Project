@@ -80,7 +80,7 @@ const Nav: React.FC<NavProps> = (props) => {
                     style={{ fontSize: "18px" }}
                     onClick={dropdownHander}
                     type="button"
-                    icon={true}
+                    icon={"arrow"}
                   >
                     Sign In
                   </Button>

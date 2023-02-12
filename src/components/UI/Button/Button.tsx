@@ -6,7 +6,7 @@ interface DropdownProps {
   children: React.ReactNode;
   onClick?: () => void;
   type: "button" | "submit" | "reset" | undefined;
-  icon: Boolean;
+  icon?: "tick" | "cross" | "arrow";
   style?: {};
   iconSize?: number;
 }
@@ -17,8 +17,8 @@ const Button: React.FC<DropdownProps> = (props) => {
       {props.children}
       {props.icon && (
         <Image
-          src={`/assets/icons/ArrowRightBlue.svg`}
-          alt={"ArrowIcon"}
+          src={`/assets/icons/${props.icon}RightBlue.svg`}
+          alt={"Icon"}
           width={30}
           height={30}
           className={classes.icon}

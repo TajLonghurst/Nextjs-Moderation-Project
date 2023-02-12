@@ -36,7 +36,7 @@ const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
               key={authProvider.id}
               onClick={() => signIn(authProvider.provider)}
               type={"button"}
-              icon={true}
+              icon={"arrow"}
             >
               <li className={classes.providerItems}>
                 <Image
@@ -52,7 +52,7 @@ const DropdownItems: React.FC<DropdownItemsProps> = (props) => {
           );
         })}
       {userSession?.user && (
-        <Button onClick={() => signOut()} type={"button"} icon={true}>
+        <Button onClick={() => signOut()} type={"button"} icon={"arrow"}>
           Sign Out
         </Button>
       )}

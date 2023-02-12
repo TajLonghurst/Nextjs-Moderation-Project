@@ -24,7 +24,7 @@ const TrialForm = () => {
       </label>
       <textarea ref={commentRef} id="message" title="comment" className={classes.input} />
       <div className={classes.btnPostion}>
-        <Button style={{ fontSize: "20px" }} type="submit" icon={true}>
+        <Button style={{ fontSize: "20px" }} type="submit" icon={"arrow"}>
           Sumbit Comment
         </Button>
         {isLoading && <p>Loading</p>}

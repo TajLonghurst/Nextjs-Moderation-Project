@@ -31,7 +31,7 @@ const HeroNotification: React.FC<HeroNotificationProps> = (props) => {
           )}
           {props.status && (
             <div className={classes.btnPostion}>
-              <Button style={{ fontSize: "15px", cursor: "auto" }} type={"button"} icon={false}>
+              <Button style={{ fontSize: "15px", cursor: "auto" }} type={"button"}>
                 View Details
               </Button>
             </div>

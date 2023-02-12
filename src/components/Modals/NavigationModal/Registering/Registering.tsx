@@ -19,7 +19,7 @@ const Registering: React.FC<RegisteringProps> = (props) => {
               key={items.id}
               onClick={() => signIn(items.provider)}
               type={"button"}
-              icon={true}
+              icon={"arrow"}
             >
               <li className={classes.providerItems}>
                 <Image
@@ -36,7 +36,7 @@ const Registering: React.FC<RegisteringProps> = (props) => {
         })}
       </ul>
       <div className={classes.btnPostion}>
-        <Button type="button" onClick={props.onClickBackBtn} icon={true}>
+        <Button type="button" onClick={props.onClickBackBtn} icon={"arrow"}>
           Go Back
         </Button>
       </div>

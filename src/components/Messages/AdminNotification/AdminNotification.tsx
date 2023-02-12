@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
 import classes from "./AdminNotification.module.scss";
 import Image from "next/image";
+import AdminViewDetails from "./AdminViewDetails";
 
 interface AdminNotificationProps {
   postId: string;
@@ -12,6 +13,7 @@ interface AdminNotificationProps {
 }
 
 const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
+  const [viewDetailsIsActive, setViewDetailsIsActive] = useState(false);
   const status = props.status ? "Flagged" : "Passed";
   const reasonTrim = props.reason.toString();
 
@@ -31,23 +33,61 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
               Reason: <span className={classes.itemDetails}>{reasonTrim}</span>
             </p>
           )}
-          {/* {props.comment && (
+          <AdminViewDetails
+            name={props.name}
+            comment={props.comment}
+            status={props.status}
+            IsActive={viewDetailsIsActive}
+            setViewDetailsIsActive={setViewDetailsIsActive}
+          />
+          {/* {viewDetailsIsActive && props.name && <p className={classes.userName}>{props.name}</p>}
+          {viewDetailsIsActive && props.comment && (
             <p className={classes.item}>
-              Comment: <span className={classes.itemDetails}>{props.comment}</span>
+              <span className={classes.itemDetails}>{props.comment}</span>
             </p>
-          )} */}
-          {props.status && (
+          )}
+
+          {props.status && !viewDetailsIsActive && (
             <div className={classes.btnPostion}>
-              <Button style={{ fontSize: "15px" }} type={"button"} icon={false}>
+              <Button
+                onClick={() => setViewDetailsIsActive((prevState) => !prevState)}
+                style={{ fontSize: "15px" }}
+                type={"button"}
+              >
                 View Details
               </Button>
             </div>
           )}
+          {props.status && viewDetailsIsActive && (
+            <div className={classes.btnPostionChooses}>
+              <div className={classes.btn}>
+                <Button style={{ fontSize: "15px" }} type={"button"} icon={"tick"}>
+                  Pass
+                </Button>
+              </div>
+              <div className={classes.btn}>
+                <Button style={{ fontSize: "15px" }} type={"button"} icon={"cross"}>
+                  Remove
+                </Button>
+              </div>
+            </div>
+          )} */}
         </div>
         {!props.status && (
           <div className={classes.rightColum}>
             <p className={classes.statusdetails}>Passed</p>
             <Image src={"/assets/icons/tickIcon.svg"} alt="TickIcon" width={23} height={23} />
+          </div>
+        )}
+        {props.status && viewDetailsIsActive && (
+          <div className={classes.rightColum}>
+            <Image
+              onClick={() => setViewDetailsIsActive((prevState) => !prevState)}
+              src={"/assets/icons/crossRightBlue.svg"}
+              alt={"Icon"}
+              width={23}
+              height={23}
+            />
           </div>
         )}
       </div>
