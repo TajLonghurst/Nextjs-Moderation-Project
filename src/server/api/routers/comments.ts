@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { boolean, z } from "zod";
 import { OpenAIApi, Configuration } from "openai";
 import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 import { env } from "../../../env/server.mjs";
@@ -22,12 +22,12 @@ export const commentsRouter = createTRPCRouter({
       const result = response.data.results;
       const categories = result[0]?.categories;
 
-      const categoriesArry = [];
+      let filteredCategories;
 
       if (categories) {
-        for (const [reason, value] of Object.entries(categories)) {
-          categoriesArry.push(`${reason}: ${value}`);
-        }
+        filteredCategories = Object.entries(categories)
+          .filter(([key, value]) => value === true)
+          .map(([key, value]) => ` ${key}`);
       }
 
       const createdComment = await ctx.prisma.comment.create({
@@ -41,7 +41,7 @@ export const commentsRouter = createTRPCRouter({
         await ctx.prisma.commentModeration.create({
           data: {
             status: response.data.results[0]?.flagged,
-            reason: categoriesArry,
+            reason: filteredCategories,
             commentId: createdComment.id,
           },
         });

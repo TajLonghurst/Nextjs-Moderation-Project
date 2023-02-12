@@ -6,13 +6,14 @@ import Image from "next/image";
 interface AdminNotificationProps {
   postId: string;
   status: boolean;
-  reason: string[];
+  reason: string;
   name: string | null | undefined;
   comment: string | undefined;
 }
 
 const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
   const status = props.status ? "Flagged" : "Passed";
+  const reasonTrim = props.reason.toString();
 
   return (
     <li className={classes.listItem}>
@@ -25,16 +26,16 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
           <p className={classes.item}>
             Status: <span className={classes.itemDetails}>{status}</span>
           </p>
-          {props.reason && (
+          {props.status && props.reason && (
             <p className={classes.item}>
-              Reason: <span className={classes.itemDetails}>{props.reason}</span>
+              Reason: <span className={classes.itemDetails}>{reasonTrim}</span>
             </p>
           )}
-          {props.comment && (
+          {/* {props.comment && (
             <p className={classes.item}>
-              Reason: <span className={classes.itemDetails}>{props.comment}</span>
+              Comment: <span className={classes.itemDetails}>{props.comment}</span>
             </p>
-          )}
+          )} */}
           {props.status && (
             <div className={classes.btnPostion}>
               <Button style={{ fontSize: "15px" }} type={"button"} icon={false}>
