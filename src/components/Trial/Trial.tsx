@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Section from "../Layout/Section";
 import classes from "./Trial.module.scss";
 import H2 from "../UI/H2/H2";
@@ -14,15 +14,19 @@ const Trial = () => {
     data: commetsData,
     isSuccess: successComment,
     isLoading: isLoadingComment,
+    refetch: refetchData,
   } = api.comments.readComments.useQuery();
-
   const {
     data: adminNotifData,
     isSuccess: successAdminNotif,
     isLoading: isLoadingAdminNotif,
+    refetch: refetchNotifData,
   } = api.adminNotif.readAdminNotif.useQuery();
 
-  const submitFormHander = () => {};
+  const refreshApi = () => {
+    refetchData();
+    refetchNotifData();
+  };
 
   return (
     <Section>
@@ -38,7 +42,7 @@ const Trial = () => {
                 validation process. Flagging out any harmful content to then be easily picked off by
                 moderators.
               </P> */}
-              <TrialForm />
+              <TrialForm refreshApi={refreshApi} />
             </div>
             <TrialComments
               commentsData={commetsData}
@@ -51,6 +55,7 @@ const Trial = () => {
               adminData={adminNotifData}
               isLoading={isLoadingAdminNotif}
               isSuccess={successAdminNotif}
+              refreshApi={refreshApi}
             />
           </div>
         </div>

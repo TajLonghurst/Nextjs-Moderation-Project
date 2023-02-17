@@ -36,13 +36,15 @@ interface TrialAdminCommentsProps {
     | {
         id: string;
         status: boolean;
-        Comment: { comment: string; User: { name: string | null } | null } | null;
+        Comment: { id: string; comment: string; User: { name: string | null } | null } | null;
         createdAt: Date;
         reason: string[];
       }[]
     | undefined;
+
   isLoading: boolean;
   isSuccess: boolean;
+  refreshApi: () => void;
 }
 
 const TrialAdminComments: React.FC<TrialAdminCommentsProps> = (props) => {
@@ -56,11 +58,13 @@ const TrialAdminComments: React.FC<TrialAdminCommentsProps> = (props) => {
         return (
           <AdminNotification
             key={item.id}
-            postId={item.id}
+            adminNotifId={item.id}
+            postId={item.Comment?.id}
             status={item.status}
             reason={item.reason}
             name={item.Comment?.User?.name}
             comment={item.Comment?.comment}
+            refreshApi={props.refreshApi}
           />
         );
       })}

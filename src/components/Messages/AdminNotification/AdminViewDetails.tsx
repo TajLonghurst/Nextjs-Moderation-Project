@@ -1,16 +1,22 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import Button from "../../UI/Button/Button";
 import classes from "./AdminViewDetail.module.scss";
 
 interface AdminViewDetailsProps {
+  postId: string | undefined;
   name: string | null | undefined;
   comment: string | undefined;
   status: boolean;
   IsActive: boolean;
   setViewDetailsIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+  removeComment: () => void;
 }
 
 const AdminViewDetails: React.FC<AdminViewDetailsProps> = (props) => {
+  const btnClickHandler = () => {
+    props.removeComment();
+  };
+
   return (
     <Fragment>
       {props.IsActive && props.name && <p className={classes.userName}>{props.name}</p>}
@@ -39,7 +45,12 @@ const AdminViewDetails: React.FC<AdminViewDetailsProps> = (props) => {
             </Button>
           </div>
           <div className={classes.btn}>
-            <Button style={{ fontSize: "15px" }} type={"button"} icon={"cross"}>
+            <Button
+              onClick={btnClickHandler}
+              style={{ fontSize: "15px" }}
+              type={"button"}
+              icon={"cross"}
+            >
               Remove
             </Button>
           </div>

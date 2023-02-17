@@ -3,16 +3,21 @@ import classes from "./TrialForm.module.scss";
 import Button from "../UI/Button/Button";
 import { api } from "../../utils/api";
 
-const TrialForm = () => {
-  const commentRef = useRef<HTMLTextAreaElement>(null);
-  const { isLoading, mutate } = api.comments.addComment.useMutation();
+interface TrailFormProps {
+  refreshApi: () => void;
+}
 
-  const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+const TrialForm: React.FC<TrailFormProps> = (props) => {
+  const commentRef = useRef<HTMLTextAreaElement>(null);
+  const { isLoading, mutateAsync: mutate } = api.comments.addComment.useMutation();
+
+  const formSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const commentInput = commentRef.current?.value;
 
     if (commentInput && commentInput?.trim() !== "") {
-      mutate({ comment: commentInput });
+      await mutate({ comment: commentInput });
+      props.refreshApi();
       commentRef.current.value = "";
     }
   };

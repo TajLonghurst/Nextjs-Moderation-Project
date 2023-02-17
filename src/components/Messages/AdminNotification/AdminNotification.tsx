@@ -1,21 +1,34 @@
-import React, { useState } from "react";
-import Button from "../../UI/Button/Button";
+import React, { useContext, useState } from "react";
 import classes from "./AdminNotification.module.scss";
 import Image from "next/image";
 import AdminViewDetails from "./AdminViewDetails";
+import { api } from "../../../utils/api";
 
 interface AdminNotificationProps {
-  postId: string;
+  postId: string | undefined;
+  adminNotifId: string;
   status: boolean;
-  reason: string;
+  reason: string[];
   name: string | null | undefined;
   comment: string | undefined;
+  refreshApi: () => void;
 }
 
 const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
   const [viewDetailsIsActive, setViewDetailsIsActive] = useState(false);
+  const { mutateAsync: mutate } = api.adminNotif.removeAdminNotif.useMutation();
   const status = props.status ? "Flagged" : "Passed";
   const reasonTrim = props.reason.toString();
+
+  const removeCommentHandler = async () => {
+    await mutate({ adminNotifId: props.adminNotifId, postId: props.postId })
+      .then(() => {
+        props.refreshApi();
+      })
+      .catch((error: any) => {
+        error.message;
+      });
+  };
 
   return (
     <li className={classes.listItem}>
@@ -35,43 +48,13 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
           )}
           <AdminViewDetails
             name={props.name}
+            postId={props.postId}
             comment={props.comment}
             status={props.status}
             IsActive={viewDetailsIsActive}
             setViewDetailsIsActive={setViewDetailsIsActive}
+            removeComment={removeCommentHandler}
           />
-          {/* {viewDetailsIsActive && props.name && <p className={classes.userName}>{props.name}</p>}
-          {viewDetailsIsActive && props.comment && (
-            <p className={classes.item}>
-              <span className={classes.itemDetails}>{props.comment}</span>
-            </p>
-          )}
-
-          {props.status && !viewDetailsIsActive && (
-            <div className={classes.btnPostion}>
-              <Button
-                onClick={() => setViewDetailsIsActive((prevState) => !prevState)}
-                style={{ fontSize: "15px" }}
-                type={"button"}
-              >
-                View Details
-              </Button>
-            </div>
-          )}
-          {props.status && viewDetailsIsActive && (
-            <div className={classes.btnPostionChooses}>
-              <div className={classes.btn}>
-                <Button style={{ fontSize: "15px" }} type={"button"} icon={"tick"}>
-                  Pass
-                </Button>
-              </div>
-              <div className={classes.btn}>
-                <Button style={{ fontSize: "15px" }} type={"button"} icon={"cross"}>
-                  Remove
-                </Button>
-              </div>
-            </div>
-          )} */}
         </div>
         {!props.status && (
           <div className={classes.rightColum}>
