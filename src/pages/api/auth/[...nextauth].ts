@@ -29,15 +29,10 @@ export const authOptions: NextAuthOptions = {
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
-    GithubProvider({
-      clientId: env.GITHUB_CLIENT_ID,
-      clientSecret: env.GITHUB_CLIENT_SECRET,
-    }),
-    // profile(profile) {
-    //   return {
-    //     : profile.cheese
-    //   };
-    // },
+    // GithubProvider({
+    //   clientId: env.GITHUB_CLIENT_ID,
+    //   clientSecret: env.GITHUB_CLIENT_SECRET,
+    // }),
     /**
      * ...add more providers here
      *
@@ -49,7 +44,7 @@ export const authOptions: NextAuthOptions = {
      */
   ],
   pages: {
-    error: "/auth/error",
+    error: "/",
     // signIn: "/auth/signup",
   },
   secret: env.NEXTAUTH_SECRET,

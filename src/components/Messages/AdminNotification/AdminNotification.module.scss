@@ -1,4 +1,5 @@
 @import "../../../scss/index";
+
 .blur {
   position: absolute;
   background: rgba(255, 255, 255, 0.06);
@@ -15,6 +16,14 @@
 .listItem {
   position: relative;
   list-style: none;
+  // opacity: 0.3;
+  // &:hover {
+  //   opacity: 1;
+  //   transition: 0.5s;
+  // }
+  // &:nth-child(1) {
+  //   opacity: 1;
+  // }
   .notificationBody {
     position: absolute;
     width: 400px;
@@ -66,8 +75,13 @@
       flex-direction: row;
       .statusdetails {
         margin: 0rem;
-        margin-right: 0.5rem;
+        margin-right: 0.3rem;
         color: $SecondaryTextColor;
+      }
+      .statusdetailsFailed {
+        margin: 0rem;
+        margin-right: 0.2rem;
+        color: $ErrorText;
       }
     }
   }

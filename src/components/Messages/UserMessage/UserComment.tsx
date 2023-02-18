@@ -5,6 +5,7 @@ interface UserCommentProps {
   profilePicture?: string;
   comment: string;
   name: string | null | undefined;
+  postId: string;
 }
 
 const UserComment: React.FC<UserCommentProps> = (props) => {

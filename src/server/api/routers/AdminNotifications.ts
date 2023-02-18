@@ -39,4 +39,49 @@ export const adminNotificationsRouter = createTRPCRouter({
         })
       );
     }),
+  passAdminNotif: protectedProcedure
+    .input(z.object({ adminNotifId: z.string(), status: z.boolean() }))
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.prisma.commentModeration.update({
+        where: {
+          id: input.adminNotifId,
+        },
+        data: {
+          status: input.status,
+        },
+      });
+    }),
 });
+
+// model Comment {
+//     id            String              @id @default(cuid())
+//     comment       String
+//     createdAt     DateTime            @default(now())
+//     updatedAt     DateTime            @updatedAt
+//     User          User?               @relation(fields: [userId], references: [id])
+//     userId        String?
+//     commentStatus CommentModeration[]
+// }
+
+// model CommentModeration {
+//     id        String   @id @default(cuid())
+//     status    Boolean
+//     reason    String[]
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+//     Comment   Comment? @relation(fields: [commentId], references: [id])
+//     commentId String?  @unique
+// }
+
+// // Necessary for Next auth
+// model User {
+//     id                   String    @id @default(cuid())
+//     name                 String?
+//     email                String?   @unique
+//     emailVerified        DateTime?
+//     CustomProfilePicture String?
+//     image                String?
+//     accounts             Account[]
+//     sessions             Session[]
+//     comments             Comment[]
+// }

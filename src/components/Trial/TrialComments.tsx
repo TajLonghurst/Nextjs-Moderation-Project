@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, LegacyRef, createRef } from "react";
 import UserComment from "../Messages/UserMessage/UserComment";
 import classes from "./TrialComments.module.scss";
 import { User } from "@prisma/client";
@@ -32,6 +32,8 @@ const TrialComments: React.FC<TrialCommentsProps> = (props) => {
                 key={comment.id}
                 comment={comment.comment}
                 name={comment.User?.name}
+                postId={comment.id}
+
                 // profilePicture={comment.profilePicture}
               />
             );

@@ -1,7 +1,6 @@
 import React from "react";
 import AdminNotification from "../Messages/AdminNotification/AdminNotification";
 import classes from "./TrialAdminComments.module.scss";
-import { User } from "@prisma/client";
 
 // const FAKE_DATA = [
 //   {
@@ -53,22 +52,25 @@ const TrialAdminComments: React.FC<TrialAdminCommentsProps> = (props) => {
   );
 
   return (
-    <ul className={classes.list}>
-      {adminNotifList?.map((item) => {
-        return (
-          <AdminNotification
-            key={item.id}
-            adminNotifId={item.id}
-            postId={item.Comment?.id}
-            status={item.status}
-            reason={item.reason}
-            name={item.Comment?.User?.name}
-            comment={item.Comment?.comment}
-            refreshApi={props.refreshApi}
-          />
-        );
-      })}
-    </ul>
+    <div className={classes.container}>
+      <ul className={classes.list}>
+        {adminNotifList?.map((item) => {
+          return (
+            <AdminNotification
+              key={item.id}
+              adminNotifId={item.id}
+              postId={item.Comment?.id}
+              status={item.status}
+              reason={item.reason}
+              name={item.Comment?.User?.name}
+              comment={item.Comment?.comment}
+              refreshApi={props.refreshApi}
+            />
+          );
+        })}
+      </ul>
+      <div className={classes.bottomFade}></div>
+    </div>
   );
 };
 

@@ -77,7 +77,7 @@ const Nav: React.FC<NavProps> = (props) => {
               {!userSession?.user && (
                 <div className={classes.logInOptions}>
                   <Button
-                    style={{ fontSize: "18px" }}
+                    style={{ fontSize: "17px" }}
                     onClick={dropdownHander}
                     type="button"
                     icon={"arrow"}

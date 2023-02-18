@@ -17,11 +17,11 @@ export const Providers = [
     provider: "discord",
     name: "Discord",
   },
-  {
-    id: "p3",
-    provider: "github",
-    name: "GitHub",
-  },
+  // {
+  //   id: "p3",
+  //   provider: "github",
+  //   name: "GitHub",
+  // },
 ];
 
 const DropdownItems: React.FC<DropdownItemsProps> = (props) => {

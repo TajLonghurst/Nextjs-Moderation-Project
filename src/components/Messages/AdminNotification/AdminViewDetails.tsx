@@ -10,11 +10,18 @@ interface AdminViewDetailsProps {
   IsActive: boolean;
   setViewDetailsIsActive: React.Dispatch<React.SetStateAction<boolean>>;
   removeComment: () => void;
+  passComment: () => void;
 }
 
 const AdminViewDetails: React.FC<AdminViewDetailsProps> = (props) => {
-  const btnClickHandler = () => {
+  const removeBtnClickHandler = () => {
     props.removeComment();
+    props.setViewDetailsIsActive((prevState: boolean) => !prevState);
+  };
+
+  const passBtnClickHandler = () => {
+    props.passComment();
+    props.setViewDetailsIsActive((prevState: boolean) => !prevState);
   };
 
   return (
@@ -34,19 +41,25 @@ const AdminViewDetails: React.FC<AdminViewDetailsProps> = (props) => {
             type={"button"}
           >
             View Details
+            {/* Decision required */}
           </Button>
         </div>
       )}
       {props.status && props.IsActive && (
         <div className={classes.btnPostionChooses}>
           <div className={classes.btn}>
-            <Button style={{ fontSize: "15px" }} type={"button"} icon={"tick"}>
+            <Button
+              onClick={passBtnClickHandler}
+              style={{ fontSize: "15px" }}
+              type={"button"}
+              icon={"tick"}
+            >
               Pass
             </Button>
           </div>
           <div className={classes.btn}>
             <Button
-              onClick={btnClickHandler}
+              onClick={removeBtnClickHandler}
               style={{ fontSize: "15px" }}
               type={"button"}
               icon={"cross"}

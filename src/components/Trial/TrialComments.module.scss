@@ -7,6 +7,9 @@
   margin-top: 5rem;
   height: 20rem;
   overflow-y: auto;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
   //   &:after {
   //     content: "";
   //     position: absolute;
@@ -20,8 +23,6 @@
 .bottomFade {
   content: "";
   position: relative;
-  //   left: 0;
-  //   top: 0;
   margin-top: -120px;
   width: 95%;
   background-image: $MessageFade;

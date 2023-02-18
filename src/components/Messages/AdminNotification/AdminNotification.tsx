@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./AdminNotification.module.scss";
 import Image from "next/image";
 import AdminViewDetails from "./AdminViewDetails";
@@ -15,19 +15,29 @@ interface AdminNotificationProps {
 }
 
 const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
+  const { mutateAsync: mutateRemove } = api.adminNotif.removeAdminNotif.useMutation();
+  const { mutateAsync: mutatePass } = api.adminNotif.passAdminNotif.useMutation();
   const [viewDetailsIsActive, setViewDetailsIsActive] = useState(false);
-  const { mutateAsync: mutate } = api.adminNotif.removeAdminNotif.useMutation();
-  const status = props.status ? "Flagged" : "Passed";
+
+  const status = props.status ? "flagged" : "passed";
   const reasonTrim = props.reason.toString();
 
   const removeCommentHandler = async () => {
-    await mutate({ adminNotifId: props.adminNotifId, postId: props.postId })
-      .then(() => {
-        props.refreshApi();
-      })
-      .catch((error: any) => {
-        error.message;
-      });
+    try {
+      await mutateRemove({ adminNotifId: props.adminNotifId, postId: props.postId });
+      props.refreshApi();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const passCommentHandler = async () => {
+    try {
+      await mutatePass({ adminNotifId: props.adminNotifId, status: false });
+      props.refreshApi();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -39,7 +49,8 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
             Post ID: <span className={classes.itemDetails}>{props.postId}</span>
           </p>
           <p className={classes.item}>
-            Status: <span className={classes.itemDetails}>{status}</span>
+            Status:
+            <span className={classes.itemDetails}> {status}</span>
           </p>
           {props.status && props.reason && (
             <p className={classes.item}>
@@ -54,12 +65,19 @@ const AdminNotification: React.FC<AdminNotificationProps> = (props) => {
             IsActive={viewDetailsIsActive}
             setViewDetailsIsActive={setViewDetailsIsActive}
             removeComment={removeCommentHandler}
+            passComment={passCommentHandler}
           />
         </div>
         {!props.status && (
           <div className={classes.rightColum}>
             <p className={classes.statusdetails}>Passed</p>
             <Image src={"/assets/icons/tickIcon.svg"} alt="TickIcon" width={23} height={23} />
+          </div>
+        )}
+        {props.status && !viewDetailsIsActive && (
+          <div className={classes.rightColum}>
+            <p className={classes.statusdetailsFailed}>Flagged</p>
+            <Image src={"/assets/icons/crossRightRed.svg"} alt="TickIcon" width={23} height={23} />
           </div>
         )}
         {props.status && viewDetailsIsActive && (

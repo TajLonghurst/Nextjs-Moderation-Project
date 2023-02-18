@@ -1,7 +1,22 @@
-.list {
-  list-style: none;
-  float: right;
-  height: 100%;
-  margin: 0rem;
-  padding: 0rem;
+@import "../../scss/index";
+.container {
+  position: relative;
+  .list {
+    position: relative;
+    list-style: none;
+    margin: 0rem;
+    padding: 0rem;
+    height: 37rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    overflow-y: scroll;
+  }
+  .bottomFade {
+    content: "";
+    position: relative;
+    margin-top: -120px;
+    width: 95%;
+    background-image: $MessageFade;
+    height: 120px;
+  }
 }
