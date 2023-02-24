@@ -1,0 +1,23 @@
+@import "../../scss/index";
+
+.footer {
+  @include Section();
+  border-top: 1px solid #dddddd;
+  margin-top: 10rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  .row {
+    @include make-row();
+    list-style: none;
+    padding: 0rem;
+    margin: 0rem;
+    .item {
+      margin-inline: 1rem;
+      .icon {
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}
