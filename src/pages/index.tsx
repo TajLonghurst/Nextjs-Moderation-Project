@@ -4,6 +4,7 @@ import Hero from "../components/Hero/Hero";
 import { Fragment } from "react";
 import { type AppProps } from "next/app";
 import Trial from "../components/Trial/Trial";
+import Questions from "../components/Questions/Questions";
 // import {useSession } from "next-auth/react";
 // import { api } from "../utils/api";
 
@@ -21,6 +22,7 @@ const Home: NextPage<IndexProps> = (props) => {
       </Head>
       <Hero />
       <Trial />
+      <Questions />
     </Fragment>
   );
 };

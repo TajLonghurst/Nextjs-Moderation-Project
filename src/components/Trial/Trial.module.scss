@@ -1,7 +1,7 @@
 @import "../../scss/index";
 
 .trial {
-  height: 100vh;
+  height: 100%;
   .row {
     @include make-row();
     .col_left {
