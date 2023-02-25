@@ -1,8 +1,8 @@
 @import "../../../scss/index";
 
 .row {
-  margin-top: 10rem;
   height: 100%;
+  margin-top: 10rem;
   @include make-row();
   .col_left {
     position: relative;
