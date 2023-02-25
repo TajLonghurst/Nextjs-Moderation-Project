@@ -1,16 +1,18 @@
 import React, { Fragment } from "react";
-import Nav from "../components/Nav/Nav";
 import { type GetServerSideProps } from "next";
-import { type AppProps } from "next/app";
 import AboutUs from "../components/About/AboutUs";
+import Head from "next/head";
 
-interface AboutProps {
-  providers: AppProps;
-}
+interface AboutProps {}
 
 const about: React.FC<AboutProps> = (props) => {
   return (
     <Fragment>
+      <Head>
+        <title>VALIDS | About</title>
+        <meta name="description" content="Valids About" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <AboutUs />
     </Fragment>
   );

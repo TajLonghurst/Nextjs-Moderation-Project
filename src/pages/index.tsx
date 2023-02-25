@@ -6,12 +6,16 @@ import { type AppProps } from "next/app";
 import Trial from "../components/Trial/Trial";
 import Questions from "../components/Questions/Questions";
 import Footer from "../components/Footer/Footer";
+import TrialPlaceHolder from "../components/Trial/TrialPlaceHolder/TrialPlaceHolder";
+import { useSession } from "next-auth/react";
 
 interface IndexProps {
   providers: AppProps;
 }
 
 const Home: NextPage<IndexProps> = (props) => {
+  const { data: userSession } = useSession();
+  const TrialComponent = userSession?.user ? <Trial /> : <TrialPlaceHolder />;
   return (
     <Fragment>
       <Head>
@@ -20,7 +24,7 @@ const Home: NextPage<IndexProps> = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
-      <Trial />
+      {TrialComponent}
       <Questions />
       <Footer />
     </Fragment>

@@ -1,8 +1,21 @@
 @import "../../scss/index";
+
 .container {
   position: relative;
   @include media-breakpoint-max($breakpoints-lg) {
     width: 100%;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    margin-top: 2rem;
+    background-color: #e2e2e2;
+    border-radius: 15px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #6cb7fd;
+    border-radius: 10px;
   }
   .list {
     position: relative;
@@ -14,6 +27,8 @@
     padding: 1rem;
     padding-left: 2rem;
     overflow-y: auto;
+    scrollbar-color: #6cb7fd #e2e2e2;
+    scrollbar-width: thin;
     @include media-breakpoint-max($breakpoints-lg) {
       padding-left: 0rem;
     }

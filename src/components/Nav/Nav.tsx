@@ -88,7 +88,7 @@ const Nav: React.FC<NavProps> = (props) => {
                 </div>
               )}
 
-              <Dropdown />
+              {uiContextCtx.dropdownState && <Dropdown />}
             </div>
             <Image
               className={classes.mobileIcon}

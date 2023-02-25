@@ -5,6 +5,8 @@ import TrialComments from "./TrialComments";
 import TrialForm from "./TrialForm";
 import TrialAdminComments from "./TrialAdminComments";
 import { api } from "../../utils/api";
+import H2 from "../UI/H2/H2";
+import P from "../UI/P/P";
 
 const Trial = () => {
   const {
@@ -31,6 +33,13 @@ const Trial = () => {
         <div className={classes.row}>
           <div className={classes.col_left}>
             <div className={classes.trialContent}>
+              {/* <H2>Give it a try</H2>
+              <P>
+                Preview our monitorization services with the form below. When submitting a comment
+                It’ll go through our <span className={classes.textHighlightTwo}>AI</span> content
+                validation process. Flagging out any harmful content to then be easily picked off by
+                moderators.
+              </P> */}
               <TrialForm refreshApi={refreshApi} />
             </div>
             <TrialComments
@@ -54,14 +63,3 @@ const Trial = () => {
 };
 
 export default Trial;
-
-/* <H2>Give it a try</H2> */
-
-/* <H1>Give it a try</H1> */
-
-/* <P>
-  Preview our monitorization services with the form below. When submitting a comment
-  It’ll go through our <span className={classes.textHighlightTwo}>AI</span> content
-  validation process. Flagging out any harmful content to then be easily picked off by
-  moderators.
-</P> */

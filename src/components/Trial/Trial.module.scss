@@ -12,6 +12,17 @@
       @include make-col(lg, 6);
       @include make-col(xl, 6);
       @include make-col(xxl, 6);
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background-color: #e2e2e2;
+        border-radius: 15px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #6cb7fd;
+        border-radius: 10px;
+      }
       .trialContent {
         position: relative;
         display: flex;
