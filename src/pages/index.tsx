@@ -6,8 +6,6 @@ import { type AppProps } from "next/app";
 import Trial from "../components/Trial/Trial";
 import Questions from "../components/Questions/Questions";
 import Footer from "../components/Footer/Footer";
-// import {useSession } from "next-auth/react";
-// import { api } from "../utils/api";
 
 interface IndexProps {
   providers: AppProps;

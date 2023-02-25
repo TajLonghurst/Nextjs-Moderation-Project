@@ -54,6 +54,7 @@ const Footer = () => {
           );
         })}
       </ul>
+      <h1 className={classes.name}>By: Taj Longhurst</h1>
     </footer>
   );
 };
