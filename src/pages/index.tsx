@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import { type AppProps } from "next/app";
 import Trial from "../components/Trial/Trial";
 import Questions from "../components/Questions/Questions";
-import Footer from "../components/Footer/Footer";
+// import Footer from "../components/Footer/Footer";
 import TrialPlaceHolder from "../components/Trial/TrialPlaceHolder/TrialPlaceHolder";
 import { useSession } from "next-auth/react";
 
@@ -26,7 +26,7 @@ const Home: NextPage<IndexProps> = (props) => {
       <Hero />
       {TrialComponent}
       <Questions />
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 };
