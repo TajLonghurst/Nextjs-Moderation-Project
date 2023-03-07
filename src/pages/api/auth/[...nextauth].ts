@@ -47,7 +47,6 @@ export const authOptions: NextAuthOptions = {
     error: "/",
     // signIn: "/auth/signup",
   },
-  secret: env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
