@@ -23,14 +23,14 @@
         flex-direction: column;
         .textHighlightOne {
           color: $PrimaryTextColor;
-          font-family: $Inter-SemiBold;
+          // font-family: $Inter-SemiBold;
           font-size: 30px;
           margin-bottom: 0rem;
           font-weight: bold;
         }
         .textHighlightTwo {
           color: $ThridTextColor;
-          font-family: $Inter-SemiBold;
+          // font-family: $Inter-SemiBold;
           font-size: 30px;
           margin-bottom: 0rem;
           font-weight: bold;
@@ -38,7 +38,7 @@
         .introText {
           width: 85%;
           color: $PrimaryTextColor;
-          font-family: $Inter-Regular;
+          // font-family: $Inter-Regular;
           font-size: 18px;
           margin-bottom: 0rem;
           font-weight: normal;
@@ -125,7 +125,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: $SecondaryTextColor;
-            font-style: $Inter-Regular;
+            // font-style: $Inter-Regular;
             font-size: 13px;
           }
           .bg {
