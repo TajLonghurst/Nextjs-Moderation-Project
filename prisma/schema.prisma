@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-    provider = "mysql"
+    provider = "postgresql"
     // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
     // Further reading:
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
@@ -27,7 +27,7 @@ model Comment {
 model CommentModeration {
     id        String   @id @default(cuid())
     status    Boolean
-    reason    String
+    reason    String[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     Comment   Comment? @relation(fields: [commentId], references: [id])
