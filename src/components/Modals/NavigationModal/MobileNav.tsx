@@ -2,13 +2,14 @@ import Link from "next/link";
 import React, { Fragment, useContext } from "react";
 import classes from "./MobileNav.module.scss";
 import { MobileNavProps } from "./NavigationModal";
-import { useRouter } from "next/router";
 import UiContentContext from "../../../store/ui-Content";
 import Image from "next/image";
 import Button from "../../UI/Button/Button";
 import Registering from "./Registering/Registering";
+import { signOut, useSession } from "next-auth/react";
 
 const MobileNav: React.FC<MobileNavProps> = (props) => {
+  const { data: userSession } = useSession();
   const uiContextCtx = useContext(UiContentContext);
 
   const mobileNavhandler = () => {
@@ -52,9 +53,15 @@ const MobileNav: React.FC<MobileNavProps> = (props) => {
                 })}
               <li className={classes.navItems}>
                 <div className={classes.btnPostion}>
-                  <Button onClick={signUpbtnHandler} type={"button"} icon={"arrow"}>
-                    Sign In
-                  </Button>
+                  {!userSession?.user ? (
+                    <Button onClick={signUpbtnHandler} type={"button"} icon={"arrow"}>
+                      Sign In
+                    </Button>
+                  ) : (
+                    <Button onClick={() => signOut()} type={"button"} icon={"arrow"}>
+                      Sign Out
+                    </Button>
+                  )}
                 </div>
               </li>
             </ul>
