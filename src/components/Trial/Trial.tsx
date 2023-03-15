@@ -7,8 +7,10 @@ import TrialAdminComments from "./TrialAdminComments";
 import { api } from "../../utils/api";
 import H2 from "../UI/H2/H2";
 import P from "../UI/P/P";
+import { useSession } from "next-auth/react";
 
 const Trial = () => {
+  const { data: userSession } = useSession();
   const {
     data: commetsData,
     isSuccess: successComment,

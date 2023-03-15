@@ -49,6 +49,9 @@ export const commentsRouter = createTRPCRouter({
     }),
   readComments: protectedProcedure.query(async ({ ctx }) => {
     return ctx.prisma.comment.findMany({
+      where: {
+        userId: ctx.session.user.id,
+      },
       select: {
         User: true,
         comment: true,

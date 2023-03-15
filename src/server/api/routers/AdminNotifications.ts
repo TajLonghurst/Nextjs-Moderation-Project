@@ -4,6 +4,11 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 export const adminNotificationsRouter = createTRPCRouter({
   readAdminNotif: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.commentModeration.findMany({
+      where: {
+        Comment: {
+          userId: ctx.session.user.id,
+        },
+      },
       select: {
         id: true,
         reason: true,
