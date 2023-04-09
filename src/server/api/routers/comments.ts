@@ -1,6 +1,6 @@
-import { boolean, z } from "zod";
+import { z } from "zod";
 import { OpenAIApi, Configuration } from "openai";
-import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure } from "../trpc";
 import { env } from "../../../env/server.mjs";
 
 const configuration = new Configuration({
